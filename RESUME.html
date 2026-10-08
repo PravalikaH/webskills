@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pravalika H - Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b2838;
+    --muted:#6f6b7d;
+    --line:#e6e2ee;
+    --plum:#7b4b94;
+    --p1:#e8685f; --p2:#f2b84b; --p3:#4fb5a5; --p4:#5b8def;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Jost',Arial,sans-serif;
+    font-weight:400;
+    color:var(--ink);
+    background:#f1eff5;
+    padding:28px;
+  }
+  .page{
+    max-width:880px;margin:0 auto;background:#fff;
+    padding:48px 52px 52px;
+    box-shadow:0 10px 40px rgba(43,40,56,.12);
+  }
+
+  /* ---------- header ---------- */
+  .head{display:flex;align-items:flex-end;gap:34px;padding-bottom:30px;border-bottom:1px solid var(--line)}
+
+  /* arched photo, top-left */
+  .photo{
+    position:relative;flex:none;width:138px;height:170px;cursor:pointer;display:block;
+  }
+  .photo::before{              /* offset outline */
+    content:"";position:absolute;inset:0;
+    border:2px solid var(--plum);
+    border-radius:70px 70px 6px 6px;
+    transform:translate(8px,8px);
+  }
+  .photo img{
+    position:relative;width:100%;height:100%;object-fit:cover;display:block;
+    border-radius:70px 70px 6px 6px;background:#f1eff5;
+  }
+  .photo input{display:none}
+  .photo .hint{
+    position:absolute;left:0;right:0;bottom:-26px;text-align:center;
+    font-size:11px;color:var(--muted);
+  }
+
+  .name h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;font-size:60px;line-height:1;letter-spacing:.5px;
+  }
+  .name .role{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:24px;color:var(--plum);margin-top:6px;
+  }
+  .dots{display:flex;gap:7px;margin-top:16px}
+  .dots i{width:11px;height:11px;border-radius:50%;display:block}
+  .dots i:nth-child(1){background:var(--p1)}
+  .dots i:nth-child(2){background:var(--p2)}
+  .dots i:nth-child(3){background:var(--p3)}
+  .dots i:nth-child(4){background:var(--p4)}
+
+  /* ---------- body ---------- */
+  .grid{display:grid;grid-template-columns:230px 1fr;gap:44px;margin-top:44px}
+
+  section{margin-bottom:30px}
+  section:last-child{margin-bottom:0}
+
+  h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;font-size:24px;color:var(--ink);
+    margin-bottom:12px;
+    display:flex;align-items:center;gap:12px;
+  }
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .side ul,.main ul{list-style:none}
+  .side li{font-size:14.5px;margin-bottom:8px;line-height:1.4;word-break:break-word}
+  .side .label{display:block;font-size:12.5px;color:var(--muted)}
+  a{color:var(--plum);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* small colored bullets, like paint dabs */
+  .dab li{position:relative;padding-left:18px}
+  .dab li::before{
+    content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;
+  }
+  .dab li:nth-child(4n+1)::before{background:var(--p1)}
+  .dab li:nth-child(4n+2)::before{background:var(--p2)}
+  .dab li:nth-child(4n+3)::before{background:var(--p3)}
+  .dab li:nth-child(4n+4)::before{background:var(--p4)}
+
+  .objective{font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.5;font-style:italic;color:var(--ink)}
+
+  .entry{margin-bottom:14px}
+  .entry:last-child{margin-bottom:0}
+  .entry .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .entry h3{font-weight:500;font-size:16px}
+  .entry .when{font-size:13px;color:var(--muted);white-space:nowrap}
+  .entry .sub{font-size:14px;color:var(--muted);margin-top:2px}
+  .entry p{font-size:14.5px;line-height:1.6;margin-top:6px}
+
+  .main li{font-size:14.5px;line-height:1.55;margin-bottom:8px}
+
+  /* ---------- responsive + print ---------- */
+  @media (max-width:720px){
+    body{padding:10px}
+    .page{padding:30px 22px}
+    .head{flex-direction:column;align-items:flex-start;gap:36px}
+    .name h1{font-size:44px}
+    .grid{grid-template-columns:1fr;gap:30px}
+  }
+  @media print{
+    body{background:#fff;padding:0}
+    .page{box-shadow:none}
+    .photo .hint{display:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="head">
+    <label class="photo" title="Click to upload your photo">
+      <img id="preview" alt="Profile photo of Pravalika H"
+           src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f1eff5'/><circle cx='50' cy='40' r='16' fill='%23b9a6c9'/><path d='M16 100c3-26 18-34 34-34s31 8 34 34z' fill='%23b9a6c9'/></svg>">
+      <span class="hint">Click to add photo</span>
+      <input type="file" id="upload" accept="image/*">
+    </label>
+
+    <div class="name">
+      <h1>Pravalika H</h1>
+      <div class="role">Student</div>
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <aside class="side">
+      <section>
+        <h2>Contact</h2>
+        <ul>
+          <li><span class="label">Phone</span>+918123195326</li>
+          <li><span class="label">Email</span><a href="mailto:pravalikah98@gmail.com">pravalikah98@gmail.com</a></li>
+          <li><span class="label">GitHub</span><a href="https://github.com/PravalikaH" target="_blank" rel="noopener">github.com/PravalikaH</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul class="dab">
+          <li>Python programming</li>
+          <li>Web Development</li>
+          <li>MySQL</li>
+          <li>Follow-up Calls</li>
+          <li>Data entry</li>
+          <li>Complaint handling</li>
+          <li>Tutoring</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <ul class="dab">
+          <li>Kannada</li>
+          <li>English</li>
+          <li>Telugu</li>
+          <li>Tamil</li>
+          <li>Hindi</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Hobbies</h2>
+        <ul class="dab">
+          <li>Music</li>
+          <li>Travel</li>
+          <li>Painting</li>
+          <li>Dance</li>
+          <li>Art</li>
+        </ul>
+      </section>
+    </aside>
+
+    <main class="main">
+      <section>
+        <h2>Objective</h2>
+        <p class="objective">Reliable intern studying computer science engineering seeks an internship opportunity to expand skills and gain valuable real-world experience.</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="entry">
+          <div class="top"><h3>B.E. in Computer Science</h3><span class="when">2025 &ndash; 2028</span></div>
+          <div class="sub">Bangalore Institute of Technology</div>
+        </div>
+        <div class="entry">
+          <h3>Diploma in Computer Science and Engineering</h3>
+          <div class="sub">S J (Govt) Polytechnic College</div>
+        </div>
+        <div class="entry">
+          <div class="top"><h3>Secondary School Learning Certificate</h3><span class="when">2020 &ndash; 21</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="entry">
+          <div class="top"><h3>Tele caller</h3><span class="when">07/2021 &ndash; 02/2022</span></div>
+          <div class="sub">ASP Solutions</div>
+          <p>Initiated customer conversations to provide detailed information on offered products and services.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <ul class="dab">
+          <li>Samsung Innovation Campus Artificial Intelligence training for 3 months</li>
+          <li>Completed Networking Basics at CISCO</li>
+          <li>Front-end and Back-end Development using JavaScript and Node.js at DevTown</li>
+          <li>Employability Skills at Wadhwani Foundation</li>
+          <li>Project Management Fundamentals at IBM SkillsBuild</li>
+        </ul>
+      </section>
+    </main>
+
+  </div>
+</div>
+
+<script>
+  document.getElementById('upload').addEventListener('change', function (e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+      document.getElementById('preview').src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
+</body>
+</html>
